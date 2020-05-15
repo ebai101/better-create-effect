@@ -242,12 +242,10 @@
 						<false/>
 						<key>MacroActionType</key>
 						<string>CustomPrompt</string>
-						<key>NotifyOnFailure</key>
-						<false/>
 						<key>NotifyOnTimeOut</key>
 						<false/>
 						<key>Path</key>
-						<string>/Volumes/FilesHDD/CODE/kbmaestro/better-create-effect/create-effect.html</string>
+						<string>%Variable%BCEFolderLocation%/create-effect.html</string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
 						<key>UseText</key>
@@ -509,8 +507,10 @@ else:
 				</array>
 				<key>CreationDate</key>
 				<real>611096902.63314795</real>
+				<key>IsActive</key>
+				<false/>
 				<key>ModificationDate</key>
-				<real>611250043.76905298</real>
+				<real>611258993.77490902</real>
 				<key>Name</key>
 				<string>Better Create Effect</string>
 				<key>Triggers</key>
@@ -527,7 +527,7 @@ else:
 					</dict>
 				</array>
 				<key>UID</key>
-				<string>597F2AB1-BB40-4B13-9769-D0A65BB170EE</string>
+				<string>AF17D1ED-3D06-4386-A409-8DE29EAEEACD</string>
 			</dict>
 		</array>
 		<key>Name</key>

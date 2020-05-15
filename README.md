@@ -4,7 +4,7 @@ Reason has been my DAW of choice for a long time, but although I love it to piec
 
 I was inspired by Ableton's easy Command-F search function, so I designed this Keyboard Maestro macro that emulates that.
 
-[vid goes here]
+![bce-demo](https://github.com/ebai101/better-create-effect/raw/master/resources/bce-demo.gif)
 
 The JXA script `getPluginDb.scpt` searches the Reason menus to find every device listed in Reason, which is then output as JSON. The JSON is accessed by the HTML prompt from Keyboard Maestro, which allows for autocompletion in the search prompt.
 

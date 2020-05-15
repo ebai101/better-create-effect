@@ -1,0 +1,22 @@
+body {
+  	overflow: hidden;
+}
+
+#searchbar {
+    font-family: monospace;
+    font-size: 36pt;
+    border: none;
+    width: 1180px;
+}
+
+#searchbar:focus {
+    outline: none;
+}
+
+.ui-autocomplete {
+	font-family: monospace;
+}
+
+.ui-menu-item {
+	font-size: 18pt;
+}

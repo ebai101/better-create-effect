@@ -1,9 +1,11 @@
-let plugin_search_list;
+let pluginSearchList;
+
+// don't cache the plugin db
 let cachebuster = new Date().getTime();
 $('body').append("<script type=\"text/javascript\" src=\"js/plugin_db.js?v=" + cachebuster + "\"><\/script>");
 
 $(function() {
-    plugin_search_list = plugin_db.map(obj => {
+    pluginSearchList = plugin_db.map(obj => {
         let rObj = {};
         rObj['label'] = obj['plugin'];
         rObj['value'] = obj['value'];
@@ -12,10 +14,24 @@ $(function() {
     });
 
     $('#searchbar').autocomplete({
-        appendTo: "#search-container",
+        appendTo: "#results",
         autoFocus: true,
         delay: 0,
-        source: plugin_search_list,
+        source: pluginSearchList,
+
+        open: function(event) {
+            $('.ui-autocomplete').css('height', 'auto');
+            let $input = $(event.target),
+                inputTop = $input.offset().top,
+                inputHeight = $input.outerHeight(),
+                autocompleteHeight = $('.ui-autocomplete').outerHeight();
+            window.resizeTo (window.outerWidth, inputHeight + (2*inputTop) + autocompleteHeight + (window.outerHeight - window.innerHeight));
+        },
+
+        close: function(event) {
+            let inputHeight = $(event.target).outerHeight();
+            window.resizeTo (window.outerWidth, inputHeight);
+        },
 
         response: function(event, ui) {
             ui['content'].sort(function(a, b) {
@@ -28,10 +44,6 @@ $(function() {
                 return 0;
             });
             ui['content'].splice(9);
-        },
-
-        _resizeMenu: function() {
-            this.menu.element.outerWidth(1180);
         }
     });
 
@@ -39,7 +51,7 @@ $(function() {
         let keycode = (event.keyCode ? event.keyCode : event.which);
 
         if (keycode == '13') {
-            var target_plugin = (function(array, attr, value) {
+            var targetPlugin = (function(array, attr, value) {
                 for (var i = 0; i < array.length; i += 1) {
                     if (array[i][attr] === value) {
                         return i;
@@ -48,14 +60,12 @@ $(function() {
                 return -1;
             })(plugin_db, 'plugin', $('#searchbar').val());
 
-            if (target_plugin !== -1) {
-                window.KeyboardMaestro.SetVariable('BCEName', plugin_db[target_plugin]['plugin']);
-                window.KeyboardMaestro.SetVariable('BCEVendor', plugin_db[target_plugin]['vendor']);
-                window.KeyboardMaestro.SetVariable('BCEType', plugin_db[target_plugin]['type']);
+            if (targetPlugin !== -1) {
+                window.KeyboardMaestro.SetVariable('BCEName', plugin_db[targetPlugin]['plugin']);
+                window.KeyboardMaestro.SetVariable('BCEVendor', plugin_db[targetPlugin]['vendor']);
+                window.KeyboardMaestro.SetVariable('BCEType', plugin_db[targetPlugin]['type']);
             }
             window.KeyboardMaestro.Submit('OK'); 
-        } else if (keycode == '27') {
-            window.KeyboardMaestro.Cancel('Cancel');
         }
     });
 });

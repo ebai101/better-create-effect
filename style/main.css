@@ -1,12 +1,19 @@
 body {
-  	overflow: hidden;
+      overflow: hidden;
+      background-color: #323232;
+}
+
+#search-container {
+    width: 100%;
 }
 
 #searchbar {
     font-family: monospace;
-    font-size: 36pt;
+    font-size: 4vw;
     border: none;
-    width: 1180px;
+    background-color: #323232;
+    color: #ffffff;
+    width: 100%;
 }
 
 #searchbar:focus {
@@ -14,9 +21,16 @@ body {
 }
 
 .ui-autocomplete {
-	font-family: monospace;
+    font-family: monospace;
+    background: #464646;
+    color: #ffffff;
 }
 
 .ui-menu-item {
-	font-size: 18pt;
+	font-size: 2vw;
+}
+
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+    background: #547b95 !important;
+    border: inherit !important;
 }

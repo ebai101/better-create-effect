@@ -20,6 +20,8 @@ git clone https://github.com/ebai101/better-create-effect.git
 
 You'll need to generate the database first. Make sure you have assistive access for Terminal enabled in System Preferences > Security & Privacy > Privacy:
 
+<img src="https://github.com/ebai101/better-create-effect/raw/master/resources/systemprefs.png" alt="systemprefs" style="zoom:50%;" />
+
 Once that's done, run these commands:
 
 ```shell
@@ -31,7 +33,7 @@ This will create the file `plugin_db.json` which contains metadata on every devi
 
 Now you can import the macro into Keyboard Maestro. At the top of the macro, you'll need to set the variable `BCEFolderLocation` to the absolute path of your better-create-effect folder:
 
-
+![bcelocation](https://github.com/ebai101/better-create-effect/raw/master/resources/bcelocation.png)
 
 Once this is done, you can set the hotkey and try it out!
 

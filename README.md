@@ -39,7 +39,7 @@ Once this is done, you can set the hotkey and try it out!
 
 ## Troubleshooting
 
-### The window's too big/too small/in the wrong place:
+#### The window's too big/too small/in the wrong place:
 
 In `create-effect.html` the dimensions of the window are set on line 10:
 
@@ -49,6 +49,12 @@ In `create-effect.html` the dimensions of the window are set on line 10:
 
 The `data-kmwindow` tag is in the format "left, top, width, height". This is set up for a 1080p monitor, so you might need different options. You can also specify it as "width, height".
 
-### Error when running `osascript`
+#### Error when running `osascript`
 
 If you already tried enabling assistive access for Terminal, and that didn't work, you can run it in Script Editor. Make sure assistive access is enabled for Script Editor, then open `getPluginDb.scpt` and run it. Copy the output in the Results pane, then paste that into a TextEdit document (or another text editor) and save the file as `plugin_db.json` in the better-create-object directory.
+
+## Todo
+
+- Auto-detect screen size
+- Faster database rescan, possibly using Reason's cache files
+- Better optimized autocomplete

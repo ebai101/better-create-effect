@@ -12,7 +12,7 @@ The macro also keeps track of how many times you add a device, so your most used
 
 ## Setup
 
-Start by cloning the github repo to your machine:
+Start by cloning the Github repo to your machine:
 
 ```shell
 git clone https://github.com/ebai101/better-create-effect.git
@@ -22,14 +22,14 @@ You'll need to generate the database first. Make sure you have assistive access 
 
 <img src="https://github.com/ebai101/better-create-effect/raw/master/resources/systemprefs.png" alt="systemprefs" style="zoom:50%;" />
 
-Once that's done, run these commands:
+Once that's done, run these commands (with Reason open):
 
 ```shell
 cd /path/to/better-create-effect
 osascript getPluginDb.scpt > plugin_db.json
 ```
 
-This will create the file `plugin_db.json` which contains metadata on every device available to Reason (including the built in devices).
+This will create the file `plugin_db.json` which contains metadata on every device available to Reason (including the built in devices). **Note:** I built this on Reason 11. If the script fails here, 
 
 Now you can import the macro into Keyboard Maestro. At the top of the macro, you'll need to set the variable `BCEFolderLocation` to the absolute path of your better-create-effect folder:
 
@@ -39,22 +39,19 @@ Once this is done, you can set the hotkey and try it out!
 
 ## Troubleshooting
 
-#### The window's too big/too small/in the wrong place:
-
-In `create-effect.html` the dimensions of the window are set on line 10:
-
-```html
-<body data-kmwindow="360,200,1200,390">
-```
-
-The `data-kmwindow` tag is in the format "left, top, width, height". This is set up for a 1080p monitor, so you might need different options. You can also specify it as "width, height".
-
-#### Error when running `osascript`
+#### Errors when running `osascript`
 
 If you already tried enabling assistive access for Terminal, and that didn't work, you can run it in Script Editor. Make sure assistive access is enabled for Script Editor, then open `getPluginDb.scpt` and run it. Copy the output in the Results pane, then paste that into a TextEdit document (or another text editor) and save the file as `plugin_db.json` in the better-create-object directory.
 
+**If you're not using Reason 11,** you'll need to change the script slightly. Open `getPluginDb.scpt` in Script Editor. There's a line near the top that says:
+
+```javascript
+reason = Application('Reason 11');
+```
+
+Change the 'Reason 11' part to your Reason version (whatever the name of the application is on your system should be correct, i.e. if it's just called "Reason" then put that.)
+
 ## Todo
 
-- Auto-detect screen size
+- Light and Blue theme
 - Faster database rescan, possibly using Reason's cache files
-- Better optimized autocomplete
